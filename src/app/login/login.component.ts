@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../services/auth.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
@@ -21,15 +21,20 @@ export class LoginComponent {
   invalidLogin: string = '';
 
   login(formData:FormGroup){
-    this._AuthService.login(formData.value).subscribe((res) => {
+    this._AuthService.login(formData.value).subscribe(
+      {
+        next: (res) => {
       if(res.token) { 
         localStorage.setItem('user', res.token);
         this._AuthService.saveCurrentUser();
       }
       this._Router.navigate(['/home'])
-    }, (err) => {
+    }, 
+    error: (err) => {
       this.invalidLogin = err.error.message;
-    })
+    }
+      }
+    )
   }
 
 }

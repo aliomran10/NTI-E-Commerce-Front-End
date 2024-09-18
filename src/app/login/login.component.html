@@ -37,18 +37,22 @@
                         </div>
 
                         @if(invalidLogin !== ''){
-                            <div class="text-danger mt-2">
-                                <p>{{invalidLogin}}</p>
-                            </div>
-                            }
+                        <div class="text-danger mt-2">
+                            <p>{{invalidLogin}}</p>
+                        </div>
+                        }
 
                         <!-- Submit Button -->
-                        <div class="d-grid gap-2">
+                        <div class="d-grid gap-2 mb-3">
                             <button [disabled]="loginForm.invalid" class="btn btn-primary btn-block">Login</button>
+                        </div>
+
+                        <!-- Forgot Password Link -->
+                        <div class="text-center">
+                            <a routerLink="/account/forgetPassword" class="forgot-password-link">Forgot your password?</a>
                         </div>
                     </form>
                 </div>
-
             </div>
         </div>
     </div>
