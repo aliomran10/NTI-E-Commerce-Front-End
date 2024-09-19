@@ -25,7 +25,7 @@ export class ProductsComponent implements OnInit {
   constructor(private _ProductsService: ProductsService, private _CartService: CartService) { }
 
   loadProducts() {
-    this.subscription = this._ProductsService.getProducts(16, this.page, undefined, this.search).subscribe((res) => {
+    this.subscription = this._ProductsService.getProducts(4, this.page, undefined, this.search).subscribe((res) => {
       this.products = res.data;
       this.pagination = res.pagination;
     })

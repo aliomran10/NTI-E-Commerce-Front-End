@@ -20,7 +20,7 @@ export class ReviewsService {
     return this._HttpClient.post(`${this.hostName}${this.productsRoute}/${productId}/reviews`, formData, { headers: { authorization: `Bearer ${localStorage.getItem('user')}` } })
   }
 
-  getUserReviews(limit: number = 50, page: number = 1, sort: '-createdAt', search: string): Observable<any> {
+  getUserReviews(limit: number = 1, page: number = 1, sort: '-createdAt', search: string): Observable<any> {
     return this._HttpClient.get(`${this.hostName}${this.routeName}/myReviews?limit=${limit}&page=${page}&sort=${sort}&search=${search}`,
       { headers: { authorization: `Bearer ${localStorage.getItem('user')}` } })
   }

@@ -15,7 +15,7 @@ export class OrdersService {
     this.routeName = this._GlobalService.orderRoute;
   }
 
-  getUserOrders(limit: number = 50, page: number = 1, sort: '-createdAt', search: string): Observable<any> {
+  getUserOrders(limit: number = 3, page: number = 1, sort: '-createdAt', search: string): Observable<any> {
     return this._HttpClient.get(`${this.hostName}${this.routeName}?limit=${limit}&page=${page}&sort=${sort}&search=${search}`,
       { headers: { authorization: `Bearer ${localStorage.getItem('user')}` } })
   }

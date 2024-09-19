@@ -33,14 +33,14 @@ export class BestSellersComponent implements OnInit, OnDestroy {
 
   searchProduct(product:string){
     this.search = product;
-    this.subscription = this._ProductsService.getProducts(16, 1, '-sold', this.search).subscribe((res) => {
+    this.subscription = this._ProductsService.getProducts(4, 1, '-sold', this.search).subscribe((res) => {
       this.products = res.data;
     })
   }
 
   ngOnInit(): void {
     this.imgDomain = this._ProductsService.productImages;
-    this.subscription = this._ProductsService.getProducts(16, 1, '-sold', this.search).subscribe((res) => {
+    this.subscription = this._ProductsService.getProducts(4, 1, '-sold', this.search).subscribe((res) => {
       this.products = res.data;
     })
   }

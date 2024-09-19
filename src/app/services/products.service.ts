@@ -17,7 +17,7 @@ export class ProductsService {
     this.productImages = this._GlobalService.productsImages;
   }
 
-  getProducts(limit: number = 16, page: number = 1, sort: string = '-createdAt', search: string): Observable<any> {
+  getProducts(limit: number = 4, page: number = 1, sort: string = '-createdAt', search: string): Observable<any> {
     return this._HttpClient.get(`${this.hostName}${this.routeName}?limit=${limit}&page=${page}&sort=${sort}&search=${search}`)
   }
 

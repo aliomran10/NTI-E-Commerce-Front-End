@@ -55,7 +55,6 @@ export class ReviewsComponent implements OnInit, OnDestroy {
   updateReview(reviewId: string, formData:FormGroup){
     this._ReviewsService.updateUserReview(reviewId, formData).subscribe({
       next: (res) => {
-        // this._Router.navigate(['/products', product._id]);
         this._Router.navigate(['/home']);
       }
     })
